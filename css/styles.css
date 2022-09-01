@@ -1,0 +1,307 @@
+/* Box sizing rules */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-family: "Space Mono", monospace;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.container {
+  background-color: hsl(185deg, 41%, 84%);
+  display: grid;
+  place-content: center;
+  width: 100vw;
+}
+
+.test {
+  width: 100vw;
+  display: grid;
+  justify-items: center;
+  padding: 0em;
+}
+
+.splitter-logo {
+  width: 6em;
+  padding-block: 2em;
+  padding-inline: 0em;
+}
+
+.splitter-container {
+  min-width: 100vw;
+  padding: 2em 1em;
+  background: hsl(0deg, 0%, 100%);
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  color: hsl(184deg, 14%, 56%);
+}
+.splitter-container input {
+  width: 100%;
+  background-color: hsl(189deg, 41%, 97%);
+  outline: none;
+  border: none;
+  margin-top: 0.25em;
+  padding: 0.5em 1em;
+  text-align: right;
+  color: hsl(183deg, 100%, 15%);
+  border-radius: 0.2em;
+}
+.splitter-container input:focus {
+  border: 2px solid hsl(172deg, 67%, 45%);
+}
+.splitter-container input[type=number]::-webkit-outer-spin-button,
+.splitter-container input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.splitter-container input[type=number] {
+  -moz-appearance: textfield;
+}
+.splitter-container span {
+  display: block;
+  aspect-ratio: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  height: 1em;
+  transform: translateY(100%);
+  left: 1em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.splitter-container .people-input-container, .splitter-container .bill-input-container {
+  position: relative;
+}
+.splitter-container .dolar {
+  background-image: url("/images/icon-dollar.svg");
+}
+.splitter-container .person {
+  background-image: url("/images/icon-person.svg");
+}
+.splitter-container .bill, .splitter-container .tip-percent, .splitter-container .people {
+  padding-bottom: 2em;
+}
+.splitter-container .bill, .splitter-container .number-people {
+  position: relative;
+}
+.splitter-container .bill .error, .splitter-container .number-people .error {
+  color: red;
+  position: absolute;
+  top: 0;
+  right: 0em;
+  display: none;
+}
+.splitter-container .tip-percent-container {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+}
+.splitter-container .tip-percent-container .tip-button {
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(183deg, 100%, 15%);
+  border: none;
+  border-radius: 0.25em;
+  padding-block: 0.25em;
+  cursor: pointer;
+  text-align: center;
+  transition: all 200ms ease-in-out;
+}
+.splitter-container .tip-percent-container .tip-button#custom {
+  background-color: hsl(189deg, 41%, 97%);
+  color: hsl(184deg, 14%, 56%);
+  text-align: center;
+  transition: all 200ms ease-in-out;
+}
+.splitter-container .tip-percent-container .tip-button.active#custom {
+  border: 2px solid hsl(172deg, 67%, 45%);
+}
+.splitter-container .tip-percent-container .tip-button#custom:focus {
+  background-color: hsl(189deg, 41%, 97%);
+  border: 2px solid hsl(172deg, 67%, 45%);
+}
+.splitter-container .tip-percent-container .tip-button#custom::-moz-placeholder {
+  color: hsl(184deg, 14%, 56%);
+  text-align: center;
+}
+.splitter-container .tip-percent-container .tip-button#custom:-ms-input-placeholder {
+  color: hsl(184deg, 14%, 56%);
+  text-align: center;
+}
+.splitter-container .tip-percent-container .tip-button#custom::placeholder {
+  color: hsl(184deg, 14%, 56%);
+  text-align: center;
+}
+.splitter-container .tip-percent-container .tip-button:hover {
+  background-color: hsl(172deg, 67%, 45%);
+  color: hsl(183deg, 100%, 15%);
+}
+.splitter-container .tip-percent-container .active {
+  color: hsl(183deg, 100%, 15%);
+  background-color: hsl(185deg, 41%, 84%);
+}
+.splitter-container .output-right {
+  margin-top: 2em;
+  background-color: hsl(183deg, 100%, 15%);
+  border-radius: 0.5em;
+  padding-inline: 1em;
+  padding-block: 2em;
+  display: grid;
+  gap: 1em;
+}
+.splitter-container .output-right .tip-amount-container, .splitter-container .output-right .total-person-container {
+  display: flex;
+  justify-content: space-between;
+}
+.splitter-container .output-right .tip-amount-container .inverted, .splitter-container .output-right .total-person-container .inverted {
+  color: hsl(0deg, 0%, 100%);
+}
+.splitter-container .output-right .tip-amount-container .tip-amount, .splitter-container .output-right .tip-amount-container .total-person, .splitter-container .output-right .total-person-container .tip-amount, .splitter-container .output-right .total-person-container .total-person {
+  color: hsl(172deg, 67%, 45%);
+}
+.splitter-container .output-right .tip-amount-container .tip-amount::before, .splitter-container .output-right .tip-amount-container .total-person::before, .splitter-container .output-right .total-person-container .tip-amount::before, .splitter-container .output-right .total-person-container .total-person::before {
+  content: "$";
+}
+.splitter-container .output-right .reset-button {
+  background-color: hsl(186deg, 14%, 43%);
+  color: hsl(184deg, 14%, 56%);
+  border: none;
+  border-radius: 0.25em;
+  padding-block: 1em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.splitter-container .output-right .active {
+  background-color: hsl(172deg, 67%, 45%);
+  color: hsl(183deg, 100%, 15%);
+  pointer-events: all;
+  cursor: pointer;
+}
+.splitter-container .output-right .active:hover {
+  background-color: hsl(185deg, 41%, 84%);
+}
+
+@media (min-width: 45em) {
+  .container {
+    position: relative;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    padding-inline: 5em;
+    width: 100vw;
+  }
+  .test {
+    width: 100%;
+  }
+  .splitter-logo {
+    width: 4em;
+  }
+  .splitter-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2em 5%;
+    width: 100%;
+    gap: 2em;
+    border-radius: 1em;
+  }
+  .splitter-container .tip-percent-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .splitter-container .output-right {
+    margin-top: 0em;
+    padding: 1.5em;
+  }
+  .splitter-container .output-right .tip-amount-container, .splitter-container .output-right .total-person-container {
+    align-items: center;
+  }
+  .splitter-container .output-right .tip-amount-container div, .splitter-container .output-right .total-person-container div {
+    width: 5em;
+  }
+  .splitter-container .output-right .tip-amount-container p, .splitter-container .output-right .total-person-container p {
+    font-size: 0.8em;
+  }
+  .splitter-container .output-right .tip-amount-container .tip-amount, .splitter-container .output-right .tip-amount-container .total-person, .splitter-container .output-right .total-person-container .tip-amount, .splitter-container .output-right .total-person-container .total-person {
+    font-size: 2em;
+  }
+  .splitter-container .output-right .reset-button {
+    padding-block: 0em;
+  }
+}/*# sourceMappingURL=styles.css.map */

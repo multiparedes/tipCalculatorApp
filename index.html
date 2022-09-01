@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="test">
+        <img src="images/logo.svg" alt="Splitter logo" class="splitter-logo">
+
+        <div class="splitter-container">
+            <div class="input-left">
+                <div class="bill">
+                    <label for="bill-input"><p>Bill</p></label>
+                    <p class="error bill">Can't be blank or zero.</p>
+                    <div class="bill-input-container">
+                        <span class="dolar"></span>
+                        <input type="number" class="bill-input" id="bill-input">
+                    </div>
+                </div>
+                <div class="tip-percent">
+                    <p>Select Tip %</p>
+                    <div class="tip-percent-container">
+                        <button class="tip-button">5%</button>
+                        <button class="tip-button">10%</button>
+                        <button class="tip-button">15%</button>
+                        <button class="tip-button">25%</button>
+                        <button class="tip-button">50%</button>
+                        <input type="number" placeholder="Custom" class="tip-button" id="custom" min="0" max="9999"></input>
+                    </div>
+                </div>
+                <div class="number-people">
+                    <label for="people-input"><p>Number of People</p></label>
+                    <p class="error people">Can't be blank or zero.</p>
+                    <div class="people-input-container">
+                        <span class="person"></span>
+                        <input type="number" class="people-input" id="people-input">
+                    </div>
+                </div>
+            </div>
+            <div class="output-right">
+                <div class="tip-amount-container">
+                    <div>
+                        <p class="inverted">Tip Amount</p>
+                        <p>/ person</p>
+                    </div>
+                    <h2 class="tip-amount">0</h2>
+                </div>
+                <div class="total-person-container">
+                    <div>
+                        <p class="inverted">Total</p>
+                        <p>/ person</p>
+                    </div>
+                    <h2 class="total-person">0</h2>
+                </div>
+                <button class="reset-button">Reset</button>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</body>
+</html>

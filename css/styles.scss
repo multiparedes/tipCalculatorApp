@@ -1,0 +1,362 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+//VARIABLES FOR COLORS.
+$pimary-strong-cyan: hsl(172, 67%, 45%);
+$neutral-very-dark-cyan: hsl(183, 100%, 15%);
+$neutral-dark-grayish-cyan: hsl(186, 14%, 43%);
+$neutral-grayish-cyan: hsl(184, 14%, 56%);
+$neutral-light-grayish-cyan: hsl(185, 41%, 84%);
+$neutral-very-light-grayish-cyan: hsl(189, 41%, 97%);
+$neutral-white: hsl(0, 0%, 100%);
+
+//VARIABLES FOR OTHER GENERIC STUFF.
+$default-font-size: 18px;
+$font-family: 'Space Mono', monospace;
+$round-border: 1em;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+body {
+    font-family: $font-family;
+    font-weight: bold;
+    font-size: $default-font-size;
+}
+
+.container {
+    background-color: $neutral-light-grayish-cyan;
+    display: grid;
+    place-content: center;
+
+    width: 100vw;
+}
+
+.test {
+  width: 100vw;
+  display: grid;
+  justify-items: center;
+  padding: 0em;
+}
+
+
+.splitter-logo {
+    width: 6em;
+    padding-block: 2em;
+    padding-inline: 0em;
+}
+
+.splitter-container {
+    min-width: 100vw;
+    padding: 2em 1em;
+    background: $neutral-white;
+    border-top-left-radius: $round-border;
+    border-top-right-radius: $round-border;
+
+    color: $neutral-grayish-cyan;
+
+    input {
+        width: 100%;
+        background-color: $neutral-very-light-grayish-cyan;
+        outline: none;
+        border: none;
+        margin-top: 0.25em;
+        padding: 0.5em 1em;
+        text-align: right;
+        color: $neutral-very-dark-cyan;
+        border-radius: 0.2em;
+    }
+
+    input:focus {
+      border: 2px solid $pimary-strong-cyan;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    span {
+        display: block;
+        aspect-ratio: 1;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        height: 1em;
+        transform: translateY(100%);
+        left: 1em;
+        user-select: none;
+    }
+
+    .people-input-container, .bill-input-container {
+        position: relative;
+    }
+
+    .dolar {
+        background-image: url("/images/icon-dollar.svg");
+    }
+
+    .person {
+        background-image: url("/images/icon-person.svg");
+    }
+
+    .bill, .tip-percent, .people {
+      padding-bottom: 2em;
+    }
+
+    .bill, .number-people {
+      position: relative;
+
+      .error {
+          color: red;
+          position: absolute;
+          top: 0;
+          right: 0em;
+          display: none;
+      }
+    }
+
+    .tip-percent-container {
+      margin-top: 1em;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+
+
+      .tip-button {
+        color: $neutral-white;
+        background-color: $neutral-very-dark-cyan;
+        border: none;
+        border-radius: 0.25em;
+        padding-block: 0.25em;
+        cursor: pointer;
+        text-align: center;
+
+        transition: all 200ms ease-in-out;
+      }
+      
+      .tip-button#custom {
+        background-color: $neutral-very-light-grayish-cyan;
+        color: $neutral-grayish-cyan;
+        text-align: center;
+        transition: all 200ms ease-in-out;
+      }
+      .tip-button.active#custom {
+        border: 2px solid $pimary-strong-cyan;        
+        
+      }
+
+      .tip-button#custom:focus {
+        background-color: $neutral-very-light-grayish-cyan;
+        border: 2px solid $pimary-strong-cyan;        
+      }
+      
+      .tip-button#custom::placeholder {
+        color: $neutral-grayish-cyan;
+        text-align: center;
+      }
+
+      .tip-button:hover {
+        background-color: $pimary-strong-cyan;
+        color: $neutral-very-dark-cyan;
+      }
+      
+      .active {
+        color: $neutral-very-dark-cyan;
+        background-color: $neutral-light-grayish-cyan;
+      }
+    }
+
+    .output-right {
+      margin-top: 2em;
+
+      background-color: $neutral-very-dark-cyan;
+      border-radius: calc($round-border / 2);
+      padding-inline: 1em;
+      padding-block: 2em;
+      
+      display: grid;
+      gap: 1em;
+
+      .tip-amount-container, .total-person-container {
+        display: flex;
+        justify-content: space-between;
+
+        .inverted {
+          color: $neutral-white;
+        }
+
+        .tip-amount, .total-person {
+          color: $pimary-strong-cyan;
+        }
+
+        .tip-amount::before, .total-person::before {
+          content: "$";
+        }
+      }
+
+      .reset-button {
+        background-color: $neutral-dark-grayish-cyan;
+        color: $neutral-grayish-cyan;
+        border: none;
+        border-radius: calc($round-border / 4);
+        padding-block: 1em;
+        text-transform: uppercase;
+        pointer-events: none;
+      }
+      
+      .active {
+        background-color: $pimary-strong-cyan;
+        color: $neutral-very-dark-cyan;
+        pointer-events: all;
+        cursor: pointer;
+      }
+
+      .active:hover {
+        background-color: $neutral-light-grayish-cyan
+      }
+    }
+}
+
+@media (min-width: 45em)  {
+  .container {
+    position: relative;
+    display: grid;
+    place-content: center;
+
+    height: 100vh;
+    padding-inline: 5em;
+    width: 100vw;
+  }
+
+  .test {
+    width: 100%;
+  }
+
+  .splitter-logo {
+      width: 4em;
+  }
+
+  .splitter-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: 2em 5%;
+    width: 100%;
+
+    gap: 2em;
+
+    border-radius: $round-border;
+
+    .tip-percent-container {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+
+
+    .output-right {
+      margin-top: 0em;
+      padding: 1.5em;
+
+      .tip-amount-container, .total-person-container {
+        align-items: center;
+
+        div {
+          width: 5em;
+        }
+
+        p {
+          font-size: 0.8em;
+        }
+
+        .tip-amount, .total-person {
+          font-size: 2em;
+        }
+      }
+
+      .reset-button {
+        padding-block: 0em;
+      }
+    }
+
+  }
+
+}
